@@ -1,0 +1,21 @@
+{
+  "total_clients":"Total Viewers",
+  "bandwidth_in_per_sec":"Traffic in ",
+  "bandwidth_out_per_sec":"Traffic out ",
+  "total_bandwidth_in":"Total Traffic in",
+  "total_bandwidth_out":"Total Traffic out",
+  "total_request":"Total Request",
+  "cpu_used":"cpu",
+  "memory_used":"ram",
+  "live_streams":"live streams",
+  "resolution":"Resolution",
+  "in_bytes":"In bytes",
+  "out_bytes":"Out bytes",
+  "in_bits":"In bits",
+  "out_bits":"Out bits",
+  "viewers":"Viewers",
+  "time":"Time",
+  "play":"Play",
+  "playing":"Playing",
+  "close":"Close"
+}

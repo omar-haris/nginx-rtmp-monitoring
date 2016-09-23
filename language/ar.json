@@ -1,0 +1,21 @@
+{
+  "total_clients":"مجموع المشاهدين",
+  "bandwidth_in_per_sec":"معدل النقل الداخل",
+  "bandwidth_out_per_sec":"معدل النقل الخارج",
+  "total_bandwidth_in":"مجموع الحزم الداخلة",
+  "total_bandwidth_out":"مجموع الحزم الخارجة",
+  "total_request":"إجمالي طلبات",
+  "cpu_used":"المعالج",
+  "memory_used":"الذاكرة",
+  "live_streams":"اسم القناة",
+  "resolution":"الابعاد",
+  "in_bytes":"معدل النقل الداخل",
+  "out_bytes":"معدل النقل الخارج",
+  "in_bits":"مجموع الحزم الداخلة",
+  "out_bits":"مجموع الحزم الخارجة",
+  "viewers":"المشاهدين",
+  "time":"مدة الشتغيل",
+  "play":"تشغيل",
+  "playing":"جاري تشغيل",
+  "close":"اغلاق"
+}

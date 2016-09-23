@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/player.css">
+	<link rel="stylesheet" href="css/custom.min.css">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">{{title}}</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse navbar-right collapse">
+            <a class="navbar-brand" id="uptime"></a>
+            <div id="show_live"></div>
+        </div>
+    </div>  
+</div>
+<div class="container">
+
+	<div class="row" id="system_massages"></div>
+
+    <div class="row text-center" style='padding-top: 30px;'>
+    	<div class="col-md-8">
+	    	<div class="jumbotron">
+			  <h1 style="font-size: 105px" id="total_viewers">0</h1>
+			  <p>{{language.total_clients}} <span id="total_viewers_status"></span> </p>
+			</div>
+    	</div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                        <h1 style="font-size: 18px" id="total_request">0</h1>
+                        <p style="font-size: 12px">{{language.total_request}} <i class='glyphicon glyphicon-stats' style='color: #73afff;'></i></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="well">
+                        <h1 style="font-size: 18px" id="cpu_used">0 %</h1>
+                        <p style="font-size: 12px">{{language.cpu_used}} <span id="cpu_used_status"></span></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="well">
+                        <h1 style="font-size: 18px" id="memory_used">0 k</h1>
+                        <p style="font-size: 12px">{{language.memory_used}} <span id="memory_used_status"></span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-3">
+            <div class="jumbotron">
+                <h1 style="font-size: 20px" id="bandwidth_in_per_sec">0</h1>
+                <p style="font-size: 12px">{{language.bandwidth_in_per_sec}} <span id="bandwidth_in_per_sec_status"></span></p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="jumbotron">
+                <h1 style="font-size: 20px" id="bandwidth_out_per_sec">0</h1>
+                <p style="font-size: 12px">{{language.bandwidth_out_per_sec}} <span id="bandwidth_out_per_sec_status"></span></p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="jumbotron">
+                <h1 style="font-size: 20px" id="total_bandwidth_in">0</h1>
+                <p style="font-size: 12px">{{language.total_bandwidth_in}} <i class='glyphicon glyphicon-equalizer' style='color: #73afff;'></i></p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="jumbotron">
+                <h1 style="font-size: 20px" id="total_bandwidth_out">0</h1>
+                <p style="font-size: 12px">{{language.total_bandwidth_out}} <i class='glyphicon glyphicon-equalizer' style='color: #73afff;'></i></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="text-center"><i class='glyphicon glyphicon-signal' style='color: #73afff;'></i> {{language.live_streams}}</th>
+                    <th class="text-center"><i class='glyphicon glyphicon-facetime-video' style='color: #73afff;'></i> {{language.resolution}}</th>
+                    <th class="text-center"><i class='glyphicon glyphicon-circle-arrow-down' style='color: #73afff;'></i> {{language.in_bytes}}</th>
+                    <th class="text-center"><i class='glyphicon glyphicon-circle-arrow-up' style='color: #73afff;'></i> {{language.out_bytes}}</th>
+                    <th class="text-center"><i class='glyphicon glyphicon-circle-arrow-down' style='color: #73afff;'></i> {{language.in_bits}}</th>
+                    <th class="text-center"><i class='glyphicon glyphicon-circle-arrow-up' style='color: #73afff;'></i> {{language.out_bits}}</th>
+                    <th class="text-center"><i class='glyphicon glyphicon-user' style='color: #73afff;'></i> {{language.viewers}} </th>
+                    <th class="text-center"><i class='glyphicon glyphicon-time' style='color: #73afff;'></i> {{language.time}}</th>
+                    <th class="text-center"><i class='glyphicon glyphicon-time' style='color: #73afff;'></i> {{language.play}}</th>
+                </tr>
+                </thead>
+                <tbody id="live_stream">
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well text-center" style="padding-top: 10px;margin-top: 20px;">
+                <p class="text-muted">Powered by <a href="http://www.fiftysoft.com/product/fstv">fstv monitoring {{version}}</a> <i class="glyphicon glyphicon-stats" style='color: #73afff;'></i></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" value="{{language.play}}" id="language_play">
+<input type="hidden" value="{{stream_server}}" id="stream_server">
+
+<div id="stream_popup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{language.playing}} <span id="channel_name"></span></h4>
+            </div>
+            <div class="modal-body">
+                <div id="player"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{language.close}}</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/library/numeral.js"></script>
+<script src="js/library/player.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/socket.js"></script>
+<script src="js/message.js"></script>
+<script src="js/helper.js"></script>
+<script src="js/model.js"></script>
+<script src="js/core.js"></script>
+<script src="js/events.js"></script>
+</body>
+</html>

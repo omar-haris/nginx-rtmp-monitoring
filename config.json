@@ -1,0 +1,11 @@
+{
+  "site_title":"RTMP Monitoring",
+  "http_server_port":9991,
+  "rtmp_server_refresh":3000, // im ms
+  "rtmp_server_timeout":15000,
+  "rtmp_server_url":"http://localhost/stat.xml",
+  "rtmp_server_stream_url":"rtmp://localhost/live/",
+  "language":"en",
+  "template":"default",
+  "version":"1.0.0"
+}
