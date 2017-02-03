@@ -12,7 +12,6 @@ and you need to install nodejs , npm and git .
 
 * open nginx config file and add at http -> server section this code 
 
-``
 
         location /stat {
             rtmp_stat all;
@@ -23,5 +22,4 @@ and you need to install nodejs , npm and git .
 		      root html;
         }
 
-``
 
