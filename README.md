@@ -10,7 +10,7 @@ first you must installed @nginx-rtmp-module
 and you need to install nodejs , npm and git .
 
 
-* open nginx config file and add at http -> server section this code 
+* open nginx config file and add at http -> server section put this code 
 
 
         location /stat {
@@ -23,3 +23,21 @@ and you need to install nodejs , npm and git .
         }
 
 
+* move stat.xsl file to main html folder of ningx 
+
+* go to your home folder in your server 
+
+	git clone https://github.com/fiftysoft/nginx-rtmp-monitoring.git
+	
+* cd to nginx-rtmp-monitoring folder run :
+
+	npm install
+	
+* start nodejs server
+
+	node server.js
+	
+* open your borwser http://ip:9991
+
+
+any help ask me at https://www.facebook.com/khdevelopment
