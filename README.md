@@ -7,5 +7,21 @@ real-time monitoring dashboard for nginx rtmp module
 
 first you must installed @nginx-rtmp-module
 
-and you need to install nodejs and npm 
+and you need to install nodejs , npm and git .
+
+
+* open nginx config file and add at http -> server section this code 
+
+``
+
+        location /stat {
+            rtmp_stat all;
+            rtmp_stat_stylesheet stat.xsl;
+        }
+
+        location /stat.xsl {
+		      root html;
+        }
+
+``
 
