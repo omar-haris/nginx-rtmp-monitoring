@@ -41,3 +41,12 @@ and you need to install nodejs , npm and git .
 
 
 any help ask me at https://www.facebook.com/khdevelopment
+
+
+# Docker
+
+        docker-compose up
+
+Alternatively build and run the container yourself:
+
+        docker build -t nginx-rtmp-monitoring . && docker run -it --rm -p 9991:9991 nginx-rtmp-monitoring
