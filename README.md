@@ -19,9 +19,15 @@ and you need to install nodejs , npm and git .
         }
 
         location /stat.xsl {
-		      root html;
+	    root html;
         }
 
+	location /control {
+	    rtmp_control all;
+
+	    # Enable CORS
+	    add_header Access-Control-Allow-Origin * always;
+	}
 
 * move stat.xsl file to main html folder of ningx 
 
