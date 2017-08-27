@@ -22,7 +22,7 @@
             <a class="navbar-brand" id="uptime"></a>
             <div id="show_live"></div>
         </div>
-    </div>  
+    </div>
 </div>
 <div class="container">
 
@@ -105,6 +105,7 @@
                     <th class="text-center"><i class='glyphicon glyphicon-user' style='color: #73afff;'></i> {{language.viewers}} </th>
                     <th class="text-center"><i class='glyphicon glyphicon-time' style='color: #73afff;'></i> {{language.time}}</th>
                     <th class="text-center"><i class='glyphicon glyphicon-time' style='color: #73afff;'></i> {{language.play}}</th>
+                    <th class="text-center"><i class='glyphicon glyphicon-time' style='color: #73afff;'></i> {{language.drop}}</th>
                 </tr>
                 </thead>
                 <tbody id="live_stream">
@@ -128,6 +129,25 @@
 
 <input type="hidden" value="{{language.play}}" id="language_play">
 <input type="hidden" value="{{stream_server}}" id="stream_server">
+<input type="hidden" value="{{language.drop}}" id="language_drop">
+<input type="hidden" value="{{control_server}}" id="control_server">
+
+<div id="stream_drop_popup" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{language.drop}} <span id="channel_name"></span></h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="modal-btn-yes">Yes</button>
+        <button type="button" class="btn btn-primary" id="modal-btn-no">No</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="stream_popup" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -151,6 +171,7 @@
 <script src="js/library/numeral.js"></script>
 <script src="js/library/player.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/confirm-bootstrap.js"></script>
 <script src="js/socket.js"></script>
 <script src="js/message.js"></script>
 <script src="js/helper.js"></script>
