@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "express": "4.13.4",
-    "fetch": "1.0.1",
+    "fetch": "1.1.0",
     "xml2js": "0.4.16",
     "socket.io": "1.4.6",
     "os": "0.1.1",
