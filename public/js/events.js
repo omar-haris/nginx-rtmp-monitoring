@@ -1,3 +1,31 @@
+function drop_publisher(app_name, stream_name) {
+    var control_server = $("#control_server").val() + "/drop/publisher?app=" + app_name + "&name=" + stream_name;
+    console.log('drop: ' + stream_name + ' from URL:' + control_server);
+
+    var jqxhr = $.get(control_server, function (data, status) {
+        console.log('Status: ' + status + ' Data: ' + data);
+    });
+
+}
+
+function dropStreamEvent() {
+
+    $(".drop_stream").click(function () {
+	    var stream_name = $(this).attr('data-stream-name');
+
+	    $("#stream_drop_popup").modal('show');
+
+	    $("#modal-btn-yes").on("click", function () {
+	        drop_publisher("live", stream_name);
+	        $("#stream_drop_popup").modal('hide');
+	    });
+
+	    $("#modal-btn-no").on("click", function () {
+	        $("#stream_drop_popup").modal('hide');
+	    });
+    });
+}
+
 function playStreamEvent() {
 
     var $player;

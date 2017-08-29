@@ -5,6 +5,7 @@
   "rtmp_server_timeout":15000,
   "rtmp_server_url":"http://localhost/stat.xml",
   "rtmp_server_stream_url":"rtmp://localhost/live/",
+  "rtmp_server_control_url":"http://localhost/control",
   "language":"en",
   "template":"default",
   "version":"1.0.0"

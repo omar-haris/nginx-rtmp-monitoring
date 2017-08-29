@@ -28,7 +28,8 @@ app.get('/',function(req,res){
         title: config.site_title,
         language: language,
         version:config.version,
-        stream_server:config.rtmp_server_stream_url
+        stream_server:config.rtmp_server_stream_url,
+        control_server:config.rtmp_server_control_url
    });
 });
 
@@ -100,10 +101,3 @@ setInterval(function(){
   });
 
 },config.rtmp_server_refresh);
-
-
-
-
-
-
-
