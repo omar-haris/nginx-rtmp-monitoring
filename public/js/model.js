@@ -61,8 +61,8 @@ function setLiveStream(data)
         var viewers = "<td class='text-center'><b>"+numeral(channel.nclients[0]).format('0,0')+"<b/></td>";
 	var v_w = 0;
 	var v_h = 0;
-	if (typeof channel.meta !== 'undefined') {
-	    v_w = chanel.meta[0].video[0].width[0];
+	if (typeof channel.meta[0].video !== 'undefined') {
+	    v_w = channel.meta[0].video[0].width[0];
 	    v_h = channel.meta[0].video[0].height[0];
 	}
         var resolution = "<td class='text-center'>"+ v_w + " X " + v_h+"</td>";
