@@ -1,4 +1,5 @@
 var express = require("express");
+var session = require('express-session');
 var fetchUrl = require("fetch").fetchUrl;
 var parseString = require('xml2js').parseString;
 var config = require('./config.json');
@@ -19,11 +20,39 @@ function customHeaders( req, res, next ){
     app.disable( 'x-powered-by' );
     res.setHeader( 'X-Powered-By', "fstv monitoring "+config.version );
     next()
-}
+};
 
 app.use(customHeaders);
 
-app.get('/',function(req,res){
+app.use(session({
+    secret: config.session_secret_key,
+    resave: true,
+    saveUninitialized: true
+}));
+
+var auth = function(req, res, next) {
+  if (req.session && req.session.user === "amy" && req.session.admin)
+    return next();
+  else
+    return res.sendStatus(401);
+};
+
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.send("logout success!");
+});
+
+app.get('/login', function (req, res) {
+  if (!req.query.username || !req.query.password) {
+    res.send('login failed');
+  } else if(req.query.username === config.username || req.query.password === config.password) {
+    req.session.user = "amy";
+    req.session.admin = true;
+    res.send("login success!");
+  }
+});
+
+app.get('/',auth,function(req,res){
    res.render(config.template,{
         title: config.site_title,
         language: language,
@@ -36,7 +65,6 @@ app.get('/',function(req,res){
 app.get('*', function(req, res){
     res.redirect('/');
 });
-
 
 function cpuAverage() {
     var totalIdle = 0, totalTick = 0;

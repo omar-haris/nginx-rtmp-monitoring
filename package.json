@@ -1,6 +1,6 @@
 {
   "name": "fstv-monitoring",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Real-time monitoring dashboard for nginx rtmp module.",
   "author": "Fiftysoft",
   "homepage": "https://github.com/fiftysoft/nginx-rtmp-monitoring",
@@ -23,10 +23,11 @@
   },
   "dependencies": {
     "express": "4.13.4",
+    "express-session": "^1.15.5",
     "fetch": "1.1.0",
-    "xml2js": "0.4.16",
-    "socket.io": "1.4.6",
     "os": "0.1.1",
-    "swig": "1.4.2"
+    "socket.io": "1.4.6",
+    "swig": "1.4.2",
+    "xml2js": "0.4.16"
   }
 }
