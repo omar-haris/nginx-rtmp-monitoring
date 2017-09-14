@@ -31,7 +31,7 @@ app.use(session({
 }));
 
 var auth = function(req, res, next) {
-  if (req.session && req.session.user === "amy" && req.session.admin)
+  if (req.session && req.session.user === "fstn" && req.session.admin)
     return next();
   else
     return res.sendStatus(401);
@@ -43,13 +43,21 @@ app.get('/logout', function (req, res) {
 });
 
 app.get('/login', function (req, res) {
+
   if (!req.query.username || !req.query.password) {
     res.send('login failed');
-  } else if(req.query.username === config.username || req.query.password === config.password) {
-    req.session.user = "amy";
+    return;
+  }
+
+  if(req.query.username === config.username && req.query.password === config.password) {
+    req.session.user = "fstn";
     req.session.admin = true;
     res.send("login success!");
+    return;
   }
+
+  res.send("login failed!");
+
 });
 
 app.get('/',auth,function(req,res){
