@@ -52,7 +52,9 @@ and you need to install nodejs , npm and git .
 Note // please change username , session secret and password from config.json
 
 
-any help ask me at https://www.facebook.com/khdevelopment
+## how to get help
+leave comment on https://fiftysoft.blogspot.com/2017/10/how-to-install-nginx-rtmp-monitoring.html
+or open issue at github
 
 
 # Docker
