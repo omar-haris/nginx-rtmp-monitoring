@@ -1,6 +1,6 @@
 var express = require("express");
 var session = require('express-session');
-var fetchUrl = require("fetch").fetchUrl;
+var request = require('request');
 var parseString = require('xml2js').parseString;
 var config = require('./config.json');
 var language = require('./language/'+config.language+'.json');
@@ -114,7 +114,11 @@ setInterval(function(){
         });
     }, 100);
 
-  fetchUrl(config.rtmp_server_url,{timeout:config.rtmp_server_timeout},function(error, meta, xml){
+    request.get(config.rtmp_server_url,{timeout:config.rtmp_server_timeout},function(error, meta, xml){
+
+    if(error) {
+        io.emit('error', {"error":true});
+    }
 
     parseString(xml,function (err, result) {
 
