@@ -1,0 +1,22 @@
+{
+  "total_clients":"总观看人数",
+  "bandwidth_in_per_sec":"总传入带宽 ",
+  "bandwidth_out_per_sec":"总传出带宽 ",
+  "total_bandwidth_in":"总传入数据",
+  "total_bandwidth_out":"总传出数据",
+  "total_request":"总请求数",
+  "cpu_used":"CPU使用率",
+  "memory_used":"内存占用率",
+  "live_streams":"直播流",
+  "resolution":"分辨率",
+  "in_bytes":"传入带宽",
+  "out_bytes":"传出带宽",
+  "in_bits":"传入数据",
+  "out_bits":"传出数据",
+  "viewers":"观看人数",
+  "time":"持续时间",
+  "play":"播放",
+  "drop":"丢失",
+  "playing":"正在播放",
+  "close":"关闭"
+}
