@@ -1,11 +1,13 @@
 var express = require("express");
 var session = require('express-session');
 var request = require('request');
+var bodyParser = require('body-parser');
 var parseString = require('xml2js').parseString;
 var config = require('./config.json');
 var language = require('./language/'+config.language+'.json');
 var app = express();
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: false}));
 var server = app.listen(config.http_server_port);
 var io = require('socket.io').listen(server);
 var os = require("os");
@@ -20,7 +22,7 @@ function customHeaders( req, res, next ){
     app.disable( 'x-powered-by' );
     res.setHeader( 'X-Powered-By', "fstv monitoring "+config.version );
     next()
-};
+}
 
 app.use(customHeaders);
 
@@ -30,34 +32,39 @@ app.use(session({
     saveUninitialized: true
 }));
 
-var auth = function(req, res, next) {
-  if (req.session && req.session.user === "fstn" && req.session.admin)
-    return next();
-  else
-    return res.sendStatus(401);
+var auth = function (req, res, next) {
+    if (req.session && req.session.user === "fstn" && req.session.admin) {
+        return next();
+    }
+    else {
+        res.redirect("/login");
+    }
 };
 
 app.get('/logout', function (req, res) {
-  req.session.destroy();
-  res.send("logout success!");
+    req.session.destroy();
+    res.redirect("/login");
+});
+
+app.post('/login', function (req, res) {
+    if (!req.body.username || !req.body.password) {
+        return res.redirect("/login?error=empty");
+    }
+
+    if (req.body.username === config.username && req.body.password === config.password) {
+        req.session.user = "fstn";
+        req.session.admin = true;
+        return res.redirect("/");
+    }
+    return res.redirect("/login?error=wrong");
 });
 
 app.get('/login', function (req, res) {
-
-  if (!req.query.username || !req.query.password) {
-    res.send('login failed');
-    return;
-  }
-
-  if(req.query.username === config.username && req.query.password === config.password) {
-    req.session.user = "fstn";
-    req.session.admin = true;
-    res.send("login success!");
-    return;
-  }
-
-  res.send("login failed!");
-
+    res.render(config.login_template, {
+        title: config.site_title,
+        language: language,
+        error: req.query.error
+    });
 });
 
 app.get('/',auth,function(req,res){
@@ -101,7 +108,7 @@ setInterval(function(){
         var used_memory = 0;
         prc.stdout.setEncoding('utf8');
         prc.stdout.on('data', function (data) {
-            var str = data.toString()
+            var str = data.toString();
             var lines = str.split(/\n/g);
             for(var i = 0; i < lines.length; i++) {
                 lines[i] = lines[i].split(/\s+/);
