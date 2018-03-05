@@ -11,5 +11,6 @@
   "password":"123123",
   "language":"en",
   "template":"default",
+  "login_template":"login",
   "version":"1.0.2"
 }

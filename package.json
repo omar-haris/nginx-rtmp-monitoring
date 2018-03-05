@@ -24,6 +24,7 @@
   "dependencies": {
     "express": "4.13.4",
     "express-session": "^1.15.5",
+    "body-parser": "^1.18.2",
     "request": "2.83.0",
     "os": "0.1.1",
     "socket.io": "1.4.6",
