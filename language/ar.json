@@ -17,5 +17,12 @@
   "time":"مدة الشتغيل",
   "play":"تشغيل",
   "playing":"جاري تشغيل",
-  "close":"اغلاق"
+  "close":"اغلاق",
+  "username_placeholder":"اسم المستخدم",
+  "password_placeholder":"كلمة المرور",
+  "login_button":"تسجيل الدخول",
+  "login_form_title":"من فضلك قم بتسجيل الدخول",
+  "form_empty_error_message": "يجب كتابةاسم المستخدم وكلمة المرور",
+  "form_wrong_error_message": "اسم المستخدم او كلمة المرور غير صحيحة",
+  "form_undefined_error_message": "حصل خطا غير معروف"
 }
