@@ -43,11 +43,12 @@ and you need to install nodejs , npm and git .
 
 	node server.js
 
-* open your borwser
+* open http://your-server-ip-address:9991 on your browser
+    Default credentials for login:
+    Username: admin
+    Password: 123123
 
-- to login go to : http://your-server-ip-address:9991/login?username=admin&password=123123
-- then open dashboard go to : http://your-server-ip-address:9991/
-- if want to logout go to : http://your-server-ip-address:9991/logout
+* you can use logout button for sign out
 
 Note // please change username , session secret and password from config.json
 
