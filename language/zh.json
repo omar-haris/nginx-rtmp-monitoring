@@ -18,5 +18,12 @@
   "play":"播放",
   "drop":"丢失",
   "playing":"正在播放",
-  "close":"关闭"
+  "close":"关闭",
+  "username_placeholder":"Username",
+  "password_placeholder":"Password",
+  "login_button":"Login",
+  "login_form_title":"Please sign in",
+  "form_empty_error_message": "Username and password should not be empty.",
+  "form_wrong_error_message": "Username or password incorrect.",
+  "form_undefined_error_message": "Occurred undefined error."
 }
