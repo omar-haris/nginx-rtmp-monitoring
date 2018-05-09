@@ -55,6 +55,9 @@ socket.on('statistics', function(statistics){
         table += setLiveStream(stream);
     });
     $("#live_stream").html(table);
+    
+    playStreamEvent();
+    dropStreamEvent();
 
     setTotalViewers(numeral(total_viewers).format('0,0'));
 
