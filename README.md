@@ -35,7 +35,11 @@ and you need to install nodejs , npm and git .
 
 	git clone https://github.com/fiftysoft/nginx-rtmp-monitoring.git
 
-* cd to nginx-rtmp-monitoring folder run :
+* cd to nginx-rtmp-monitoring folder 
+
+* Edit config.json file with the path of your RTMP server 
+
+* run :
 
 	npm install
 
