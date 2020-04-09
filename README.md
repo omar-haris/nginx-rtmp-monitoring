@@ -58,7 +58,7 @@ Note // please change username , session secret and password from config.json
 
 
 ## how to get help
-leave comment on https://fiftysoft.blogspot.com/2017/10/how-to-install-nginx-rtmp-monitoring.html
+you can send me on twitter https://twitter.com/3m1oo 
 or open issue at github
 
 
