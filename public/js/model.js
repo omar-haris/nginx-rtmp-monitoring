@@ -73,8 +73,8 @@ function setLiveStream(data)
     });
 
 
-    $("#live_stream").html(table);
-
     playStreamEvent();
     dropStreamEvent();
+    return table;
+
 }

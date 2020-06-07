@@ -38,18 +38,28 @@ socket.on('statistics', function(statistics){
     var total_bandwidth_in = byteToHuman(statistics.bytes_in[0]);
     var total_bandwidth_out = byteToHuman(statistics.bytes_out[0]);
     var up_time = secondsToHuman(statistics.uptime[0]);
-    var total_viewers = statistics.server[0].application[0].live[0].nclients[0];
     var total_request = numeral(statistics.naccepted[0]).format('0.000 a');
-    var stream = statistics.server[0].application[0].live[0].stream;
 
-    setTotalViewers(numeral(total_viewers).format('0,0'));
     setBandwidthInPerSec(byteToHuman(bandwidth_in_per_sec)+"/s");
     setBandwidthOutPerSec(byteToHuman(bandwidth_out_per_sec)+"/s");
     setTotalBandwidthIn(total_bandwidth_in);
     setTotalBandwidthOut(total_bandwidth_out);
     setUpTime(up_time);
     setTotalRequest(total_request);
-    setLiveStream(stream);
+
+     var table =  "";
+     var total_viewers = 0;
+     $.each(statistics.server[0].application, function (index,appx) {
+        total_viewers += parseInt(appx.live[0].nclients[0]);
+        var stream = appx.live[0].stream;
+        table += setLiveStream(stream);
+    });
+    $("#live_stream").html(table);
+    
+    playStreamEvent();
+    dropStreamEvent();
+
+    setTotalViewers(numeral(total_viewers).format('0,0'));
 
 
     if(monitor_statistics%2 == 0)
