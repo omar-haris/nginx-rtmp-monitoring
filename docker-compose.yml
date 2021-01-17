@@ -1,6 +1,40 @@
-version: '2'
+version: "3.7"
+
 services:
-  web:
+
+  dashboard:
+    container_name: fstv_dashboard
     build: .
+    restart: always
     ports:
-      - "9991:9991"
+      - 9991:9991
+    networks:
+      - public-network
+    volumes:
+      - "dashboard-volume:/data"
+    depends_on:
+      - nginx_rtmp
+
+  nginx_rtmp:
+    container_name: fstv_nginx_rtmp
+    image: alfg/nginx-rtmp:latest
+    restart: always
+    ports:
+      - 1935:1935
+      - 8080:80
+    volumes:
+      - "nginx-rtmp-volume:/data"
+      - ./nginx.conf:/etc/nginx/nginx.conf.template
+    networks:
+      - public-network
+
+volumes:
+  dashboard-volume:
+    driver: local
+  nginx-rtmp-volume:
+    driver: local
+
+networks:
+  public-network:
+  private-network:
+    internal: true

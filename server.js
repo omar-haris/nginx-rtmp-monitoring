@@ -72,7 +72,8 @@ app.get('/',auth,function(req,res){
         title: config.site_title,
         language: language,
         version:config.version,
-        stream_server:config.rtmp_server_stream_url,
+        rtmp_stream_server:config.rtmp_server_stream_url,
+        hls_stream_server:config.hls_server_stream_url,
         control_server:config.rtmp_server_control_url
    });
 });

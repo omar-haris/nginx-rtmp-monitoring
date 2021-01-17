@@ -39,7 +39,7 @@ socket.on('statistics', function(statistics){
     var total_bandwidth_out = byteToHuman(statistics.bytes_out[0]);
     var up_time = secondsToHuman(statistics.uptime[0]);
     var total_viewers = statistics.server[0].application[0].live[0].nclients[0];
-    var total_request = numeral(statistics.naccepted[0]).format('0.000 a');
+    var total_request = numeral(statistics.naccepted[0]).format('0 a');
     var stream = statistics.server[0].application[0].live[0].stream;
 
     setTotalViewers(numeral(total_viewers).format('0,0'));

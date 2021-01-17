@@ -1,75 +1,37 @@
 # fstv-monitoring
-real-time monitoring dashboard for nginx rtmp module
+ rtmp & hls server with real-time monitoring dashboard.
 
 ![fstv monitoring](https://cloud.githubusercontent.com/assets/16119345/15388844/9f66917e-1dbc-11e6-9726-2a4912d74352.png)
 
 # How to install
 
-first you must installed @nginx-rtmp-module
+- chmod +x setup.sh && ./setup.sh
 
-and you need to install nodejs , npm and git .
-
-
-* open nginx config file and add at http -> server section put this code
-
-
-        location /stat {
-            rtmp_stat all;
-            rtmp_stat_stylesheet stat.xsl;
-        }
-
-        location /stat.xsl {
-	    root html;
-        }
-
-	    location /control {
-	        rtmp_control all;
-
-	        # Enable CORS
-	        add_header Access-Control-Allow-Origin * always;
-	    }
-
-* move stat.xsl file to main html folder of ningx
-
-* go to your home folder in your server
-
-	git clone https://github.com/fiftysoft/nginx-rtmp-monitoring.git
-
-* cd to nginx-rtmp-monitoring folder 
-
-* Edit config.json file with the path of your RTMP server 
-
-* run :
-
-	npm install
-
-* start nodejs server
-
-	node server.js
-
-* open http://your-server-ip-address:9991 on your browser
+- then open http://<server ip>:9991 on your browser
+  
     Default credentials for login:
-    Username: admin
-    Password: 123123
-
-* you can use logout button for sign out
+        Username: admin
+        Password: 123123    
 
 Note // please change username , session secret and password from config.json
 
+# Testing the stream
+
+    ffmpeg -re -i <replace your video file>.mp4 -vcodec libx264 -profile:v main -preset:v medium -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -b:v 2500k -maxrate 2500k -bufsize 2500k  -sws_flags lanczos+accurate_rnd -acodec aac -b:a 96k -ar 48000 -ac 2 -f flv rtmp://<server ip>:1935/stream/hello
+
+# Watch Stream
+In Safari, VLC or any HLS player, open:
+
+http://<server ip>:8080/live/$STREAM_NAME.m3u8
+
+Example Playlist: http://<server ip>:8080/live/hello.m3u8
+
+VideoJS Player
+
+FFplay: ffplay -fflags nobuffer rtmp://<server ip>:1935/stream/hello
 
 ## how to get help
-you can send me on twitter https://twitter.com/3m1oo 
-or open issue at github
-
-
-# Docker
-
-        docker-compose up
-
-Alternatively build and run the container yourself:
-
-        docker build -t nginx-rtmp-monitoring . && docker run -it --rm -p 9991:9991 nginx-rtmp-monitoring
-	
+you can send me on twitter https://twitter.com/3m1oo
 
 # License
 

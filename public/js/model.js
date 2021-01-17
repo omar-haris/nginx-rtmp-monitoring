@@ -66,9 +66,10 @@ function setLiveStream(data)
 	    v_h = channel.meta[0].video[0].height[0];
 	}
         var resolution = "<td class='text-center'>"+ v_w + " X " + v_h+"</td>";
-        var play = "<td><button class='btn btn-default play_stream' data-stream-name='"+channel.name[0]+"' data-toggle='modal' data-target='#stream_popup'><i class='glyphicon glyphicon-play'></i> "+language_play+"</button></td>";
+        var play_rtmp = "<td><button class='btn btn-default play_stream_rtmp' data-stream-name='"+channel.name[0]+"' data-toggle='modal' data-target='#stream_popup'><i class='glyphicon glyphicon-play'></i> "+language_play+" RTMP</button></td>";
+        var play_hls = "<td><button class='btn btn-default play_stream_hls' data-stream-name='"+channel.name[0]+"' data-toggle='modal' data-target='#stream_popup'><i class='glyphicon glyphicon-play'></i> "+language_play+" HLS</button></td>";
 	    var drop = "<td><button class='btn btn-default drop_stream' data-stream-name='"+channel.name[0]+"'><i class='glyphicon glyphicon-stop'></i> "+language_drop+"</button></td>";
-        table = table + "<tr>"+name+resolution+bw_in+bw_out+bytes_in+bytes_out+viewers+time+play+drop+"</tr>";
+        table = table + "<tr>"+name+resolution+bw_in+bw_out+bytes_in+bytes_out+viewers+time+play_rtmp+play_hls+drop+"</tr>";
 
     });
 

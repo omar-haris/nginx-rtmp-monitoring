@@ -1,8 +1,8 @@
 {
   "name": "fstv-monitoring",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Real-time monitoring dashboard for nginx rtmp module.",
-  "author": "Fiftysoft",
+  "author": "Omar Khalid",
   "homepage": "https://github.com/fiftysoft/nginx-rtmp-monitoring",
   "keywords": [
     "fstv",
