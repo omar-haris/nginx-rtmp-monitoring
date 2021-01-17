@@ -7,7 +7,7 @@
 
 - chmod +x setup.sh && ./setup.sh
 
-- then open http://<server ip>:9991 on your browser
+- then open http://your-server-ip:9991 on your browser
   
     Default credentials for login:
         Username: admin
@@ -17,18 +17,18 @@ Note // please change username , session secret and password from config.json
 
 # Testing the stream
 
-    ffmpeg -re -i <replace your video file>.mp4 -vcodec libx264 -profile:v main -preset:v medium -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -b:v 2500k -maxrate 2500k -bufsize 2500k  -sws_flags lanczos+accurate_rnd -acodec aac -b:a 96k -ar 48000 -ac 2 -f flv rtmp://<server ip>:1935/stream/hello
+    ffmpeg -re -i <replace your video file>.mp4 -vcodec libx264 -profile:v main -preset:v medium -r 30 -g 60 -keyint_min 60 -sc_threshold 0 -b:v 2500k -maxrate 2500k -bufsize 2500k  -sws_flags lanczos+accurate_rnd -acodec aac -b:a 96k -ar 48000 -ac 2 -f flv rtmp://your-server-ip:1935/stream/hello
 
 # Watch Stream
 In Safari, VLC or any HLS player, open:
 
-http://<server ip>:8080/live/$STREAM_NAME.m3u8
+http://your-server-ip:8080/live/$STREAM_NAME.m3u8
 
-Example Playlist: http://<server ip>:8080/live/hello.m3u8
+Example Playlist: http://your-server-ip:8080/live/hello.m3u8
 
 VideoJS Player
 
-FFplay: ffplay -fflags nobuffer rtmp://<server ip>:1935/stream/hello
+FFplay: ffplay -fflags nobuffer rtmp://your-server-ip:1935/stream/hello
 
 ## how to get help
 you can send me on twitter https://twitter.com/3m1oo
