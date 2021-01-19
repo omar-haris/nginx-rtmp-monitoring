@@ -5,15 +5,22 @@
 
 # How to install
 
-- chmod +x setup.sh && ./setup.sh
+    chmod +x setup.sh && ./setup.sh
 
-- then open http://your-server-ip:9991 on your browser
-  
-    Default credentials for login:
-        Username: admin
-        Password: 123123    
+# Login to dashboard
 
-Note // please change username , session secret and password from config.json
+open http://your-server-ip:9991 on your browser
+
+
+default credentials for login:
+
+username: admin
+
+To find password you need to run this command:
+
+    docker exec -it fstv_dashboard cat /usr/src/app/config.json
+
+then you can pickup the password from output.
 
 # Testing the stream
 
