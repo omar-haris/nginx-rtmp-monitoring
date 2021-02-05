@@ -71,8 +71,9 @@ function playStreamEvent() {
     });
 
     $('#stream_popup').on('hidden.bs.modal', function () {
-        //bad hack to fix my issue with video js reloading
-        location.reload();
+        if(videojs.getPlayers()["PlayStream"]) {
+	    delete videojs.getPlayers()["PlayStream"];
+	}
     })
 
 
